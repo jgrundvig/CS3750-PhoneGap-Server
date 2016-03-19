@@ -1,7 +1,7 @@
-<?php require_once("connection.php")
+<?php require_once("./connection.php");
 
-$result = $mysqli->query("SELECT * from task where UserID = 4 ");
-$row = $result->fetch_assoc();
+$checkQuery = mysqli_query($conn, "SELECT * from `task` where `UserID` = 4 ");
+$row = $checkQuery->fetch_assoc();
 echo htmlentities($row['Description']);
 
 ?>
