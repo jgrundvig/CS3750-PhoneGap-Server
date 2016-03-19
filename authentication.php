@@ -18,3 +18,4 @@ if(isset($_POST['username']))
 else{
 	echo "<body>";
 }
+mysqli_close($conn);
