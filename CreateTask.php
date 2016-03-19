@@ -12,13 +12,12 @@ if(isset($_POST['userId']))
     )";
   $check = mysqli_query($conn, $sql);
   if($check){
-  $task = "{
-    success: true
-}";
+    $task = new stdClass();
+    $task->success = true;
   }else{
     die(mysqli_error($conn));
   }
-  echo $task;
+  echo json_encode($task);
 }
 else{
 	echo "<body>";

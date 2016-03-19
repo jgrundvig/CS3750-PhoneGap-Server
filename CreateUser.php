@@ -11,13 +11,12 @@ if(isset($_POST['username']))
     )";
   $check = mysqli_query($conn, $sql);
   if($check){
-  $user = "{
-    success: true
-}";
+  $user = new stdClass();
+  $user->success = true;
   }else{
     die(mysqli_error($conn));
   }
-  echo $user;
+  echo json_encode($user);
 }
 else{
 	echo "<body>";

@@ -7,17 +7,13 @@ if(isset($_POST['username']))
   $sql = mysqli_query($conn,"SELECT * FROM `user` WHERE `username` = '$username' and `password` = '$password'");
   $check = mysqli_fetch_array($sql);
   if(!is_null($check)){
-    $user = "{
-      success: true,
-      UserID: " . $check["UserID"] . "
-    }";
+    $user = new stdClass();
+    $user->success = true;
   }else{
-    $user = "{
-      success: false,
-      UserID:" . $check["UserID"] . "
-    }";
+    $user = new stdClass();
+    $user->success = false;
   }
-  echo $user;
+  echo json_encode($user);
 }
 else{
 	echo "<body>";

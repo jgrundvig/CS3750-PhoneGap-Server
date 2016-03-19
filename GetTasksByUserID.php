@@ -19,7 +19,7 @@ $result = mysqli_query($conn, $query);
       $taskList[] = $task;
 
     }
-    echo print_r($taskList);
+    echo json_encode($taskList);
   }
 }
 else{
