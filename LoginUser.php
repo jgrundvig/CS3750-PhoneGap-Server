@@ -1,4 +1,7 @@
-<?php require_once("connection.php");
+
+<?php
+require_once("connection.php");
+require_once("./user.php");
 // mysqli
 if(isset($_POST['username']))
 {
@@ -7,7 +10,9 @@ if(isset($_POST['username']))
   $sql = mysqli_query($conn,"SELECT * FROM `user` WHERE `username` = '$username' and `password` = '$password'");
   $check = mysqli_fetch_array($sql);
   if(!is_null($check)){
-    $user = new stdClass();
+    $user = new user();
+    $user->userId = $check["UserID"];
+    $user->username = $check["Username"];
     $user->success = true;
   }else{
     $user = new stdClass();

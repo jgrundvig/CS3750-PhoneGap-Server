@@ -1,4 +1,5 @@
-<?php require_once("connection.php");
+<?php
+require_once("connection.php");
 
 if(isset($_POST['username']))
 {
@@ -14,7 +15,10 @@ if(isset($_POST['username']))
   $user = new stdClass();
   $user->success = true;
   }else{
-    die(mysqli_error($conn));
+    $user = new stdClass();
+    $user->success = false;
+    //$user->message = die(mysqli_error($conn));
+    //die(mysqli_error($conn));
   }
   echo json_encode($user);
 }

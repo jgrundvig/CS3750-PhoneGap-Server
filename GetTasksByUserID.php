@@ -1,4 +1,5 @@
-<?php require_once("./connection.php");
+<?php
+require_once("./connection.php");
 require_once("./task.php");
 $userId = htmlspecialchars($_GET["userId"]);
 if(isset($userId))
@@ -12,6 +13,7 @@ $result = mysqli_query($conn, $query);
     $taskList = array();
     while($row = $result->fetch_assoc()) {
       $task = new task();
+      $task->taskId = $row["TaskID"];
       $task->description = $row["Description"];
       $task->completed = $row["Completed"];
       $task->userId = $row["UserID"];
