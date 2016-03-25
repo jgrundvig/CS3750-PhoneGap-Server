@@ -1,5 +1,6 @@
 
 <?php
+header('Access-Control-Allow-Origin: *');
 require_once("connection.php");
 require_once("./user.php");
 // mysqli

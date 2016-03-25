@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 require_once("./connection.php");
 require_once("./task.php");
 $userId = htmlspecialchars($_GET["userId"]);
